@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{>head}}
+</head>
+<body id="samples">
+
+{{>menu}}
+
+<div id="content" class="ui container padded grid relaxed">
+    <div id="doc" class="column eight wide">
+        <div class="doc-overview text container">
+
+            <h2 class="ui dividing header" data-se="overview-doc-header">
+                Okta Hosted Login + Express JS Example
+            </h2>
+
+            {{^isLoggedIn}}
+                <p>This demo uses Okta as it's OAuth2 provider. If you are seeing this message then you are <strong>not</strong> logged in.</p>
+            {{/isLoggedIn}}
+
+            {{#isLoggedIn}}
+                <p>Woohoo! You logged in. </p>
+            {{/isLoggedIn}}
+
+
+                <section class="h-100">
+                    <div class="container h-100">
+                        <div class="row justify-content-md-center h-100">
+                            <div class="card-wrapper">
+                                <div class="card fat">
+                                    <div class="card-body">
+                                        {{^isLoggedIn}}
+                                            <h4 class="card-title">Login</h4>
+                                            <a href="{{loginRedirect}}" type="button" class="btn btn-primary btn-block mb-4">Sign in via Okta</a>
+                                        {{/isLoggedIn}}
+                                        {{#isLoggedIn}}
+                                            <h4 class="card-title">Logout</h4>
+                                            <a href="/logout" type="button" class="btn btn-primary btn-block mb-4">Logout of server</a>
+                                        {{/isLoggedIn}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
